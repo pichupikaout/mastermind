@@ -38,6 +38,7 @@ public class masterMind {
                 }
             }
             System.out.println(xo);
+            codetemp = code;
             System.out.println("--------------------------------------------------------------");
             turns++;
             if (xo.equals("xxxx")) {
