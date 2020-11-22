@@ -1,3 +1,4 @@
+
 import java.util.*;
 public class masterMind {
     public static void main () {
@@ -13,26 +14,26 @@ public class masterMind {
                   int randomLettervalue = Math.abs(a.nextInt(color.length()));
                   char randomLetter = color.charAt(randomLettervalue);
                   code[b] = randomLetter;
-            
-            
             }
+            char[] codetemp = code;
             Scanner console = new Scanner(System.in);
             for (int z = 0; z < inputs.length; z++) {
-                System.out.println("letter number " + z+1 + ": ");
+                System.out.println("letter number " + (z + 1) + ": ");
                 inputs[z] = console.next().charAt(0);
             }
             for (int n = 0; n < inputs.length; n++) { // checks if you got the color right and is in the right spot
-                if (inputs[n] == code[n]) {
+                if (inputs[n] == codetemp[n]) {
                     xo = xo + 'x';
                     inputs[n] = 'N';
+                    codetemp[n] = 'Q';
                 }
-                
             }
             for (int o = 0; o < inputs.length; o++) { // after checking if you got the color right and is in the right spot, this checks if you got the color right, but it's in the wrong spot
                 for (int p = 0; p < code.length; p++) {
-                    if (inputs[o] == code[p]) {
+                    if (inputs[o] == codetemp[p]) {
                         xo = xo + 'o';
                         inputs[o] = 'N';
+                        codetemp[p] = 'Q';
                     }
                 }
             }
