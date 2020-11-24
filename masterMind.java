@@ -12,7 +12,7 @@ public class masterMind {
             int randomLettervalue = Math.abs(a.nextInt(color.length()));
             char randomLetter = color.charAt(randomLettervalue);
             code[b] = randomLetter;
-           }
+        }
         char[] codetemp = code;
         while (turns < 10) {
             System.out.println("Turn " + (turns + 1));  
@@ -24,7 +24,7 @@ public class masterMind {
             }
             for (int n = 0; n < inputs.length; n++) { // checks if you got the color right and is in the right spot
                 if (inputs[n] == codetemp[n]) {
-                    xo = xo + 'x';
+                    xo = xo + 'X';
                     inputs[n] = 'N';
                     codetemp[n] = 'Q';
                 }
@@ -32,7 +32,7 @@ public class masterMind {
             for (int o = 0; o < inputs.length; o++) { // after checking if you got the color right and is in the right spot, this checks if you got the color right, but it's in the wrong spot
                 for (int p = 0; p < code.length; p++) {
                     if (inputs[o] == codetemp[p]) {
-                        xo = xo + 'o';
+                        xo = xo + 'O';
                         inputs[o] = 'N';
                         codetemp[p] = 'Q';
                     }
@@ -42,11 +42,11 @@ public class masterMind {
             codetemp = code;
             System.out.println("--------------------------------------------------------------");
             turns++;
-            if (xo.equals("xxxx")) {
+            if (xo.equals("XXXX")) {
                 System.out.println("Congrats! You did it in " + turns + " turns!");
             }
         }
-        if (!xo.equals("xxxx")) { //checks if you didn't guess the code after 10 turns
+        if (!xo.equals("XXXX")) { //checks if you didn't guess the code after 10 turns
             System.out.println("You lose, the code was " + Arrays.toString(code) + ". Better luck next time!");;
         }
     }
