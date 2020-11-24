@@ -1,4 +1,3 @@
-
 import java.util.*;
 public class masterMind {
     public static void main () {
@@ -7,15 +6,15 @@ public class masterMind {
         char[] inputs = new char[4];
         int turns = 0;
         String xo = "";
+        for (int b = 0; b < 4; b++) { //gives out a random code
+            Random a = new Random();
+            int randomLettervalue = Math.abs(a.nextInt(color.length()));
+            char randomLetter = color.charAt(randomLettervalue);
+            code[b] = randomLetter;
+           }
+        char[] codetemp = code;
         while (turns < 10) {
-            System.out.println("Turn " + turns+1);  
-            for (int b = 0; b < 4; b++) { //gives out a random code
-                  Random a = new Random();
-                  int randomLettervalue = Math.abs(a.nextInt(color.length()));
-                  char randomLetter = color.charAt(randomLettervalue);
-                  code[b] = randomLetter;
-            }
-            char[] codetemp = code;
+            System.out.println("Turn " + (turns + 1));  
             Scanner console = new Scanner(System.in);
             for (int z = 0; z < inputs.length; z++) {
                 System.out.println("letter number " + (z + 1) + ": ");
@@ -42,12 +41,11 @@ public class masterMind {
             System.out.println("--------------------------------------------------------------");
             turns++;
             if (xo.equals("xxxx")) {
-                System.out.println("Congrats! You did it in " + (turns + 1) + " turns!");
-                
+                System.out.println("Congrats! You did it in " + turns + " turns!");
             }
         }
         if (!xo.equals("xxxx")) { //checks if you didn't guess the code after 10 turns
             System.out.println("You lose, the code was " + Arrays.toString(code) + ". Better luck next time!");;
         }
-}
+    }
 }
