@@ -4,6 +4,7 @@ public class masterMind {
         String color = "kbywrg";
         char[] code = new char[4];
         char[] inputs = new char[4];
+        String input = "";
         int turns = 0;
         String xo = "";
         for (int b = 0; b < 4; b++) { //gives out a random code
@@ -16,9 +17,10 @@ public class masterMind {
         while (turns < 10) {
             System.out.println("Turn " + (turns + 1));  
             Scanner console = new Scanner(System.in);
-            for (int z = 0; z < inputs.length; z++) {
-                System.out.println("letter number " + (z + 1) + ": ");
-                inputs[z] = console.next().charAt(0);
+            System.out.println("Type in your guess: ");
+            input = console.next();
+            for (int z = 0; z < input.length(); z++) {
+                inputs[z] = input.charAt(z);
             }
             for (int n = 0; n < inputs.length; n++) { // checks if you got the color right and is in the right spot
                 if (inputs[n] == codetemp[n]) {
